@@ -1,104 +1,71 @@
-<!-- activity_main.xml -->
+<!-- res/layout/activity_main.xml -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-    <!-- Flash Screen -->
+    <!-- Splash Screen -->
+
+    <!-- Main Content -->
     <RelativeLayout
-        android:id="@+id/flashScreen"
+        android:id="@+id/splashScreen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#ADD8E6"
+        android:gravity="center"
         android:visibility="visible">
 
         <ImageView
-            android:id="@+id/logoImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/amrita_logo"
-            android:layout_centerInParent="true"/>
+            android:src="@drawable/amrita" />
     </RelativeLayout>
 
-    <!-- Home Screen -->
-    <RelativeLayout
-        android:id="@+id/homeScreen"
+    <LinearLayout
+        android:id="@+id/mainContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ADD8E6"
+        android:orientation="vertical"
+        android:padding="8dp"
         android:visibility="gone">
 
-        <RecyclerView
+        <!-- Add Task Section -->
+        <EditText
+            android:id="@+id/taskNameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Task Name" />
+
+        <EditText
+            android:id="@+id/taskDeadlineInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Deadline (dd/MM/yyyy HH:mm)" />
+
+        <!-- Toggle Button for Viewing Completed Tasks -->
+        <Button
+            android:id="@+id/viewCompletedTasksButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Completed Tasks" />
+
+        <!-- RecyclerView for Tasks -->
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="16dp"/>
+            android:paddingTop="16dp" />
+    </LinearLayout>
 
-        <Button
-            android:id="@+id/historyButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="History"
-            android:layout_alignParentEnd="true"
-            android:layout_margin="16dp"/>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/addTaskButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_margin="16dp"
-            android:src="@drawable/ic_add"/>
-    </RelativeLayout>
-
-    <!-- Add Task Screen -->
-    <RelativeLayout
-        android:id="@+id/addTaskScreen"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp"
-        android:visibility="gone">
-
-        <EditText
-            android:id="@+id/taskName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Task Name"/>
-
-        <EditText
-            android:id="@+id/taskDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Description (Optional)"
-            android:layout_below="@id/taskName"/>
-
-        <EditText
-            android:id="@+id/taskDeadline"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Deadline"
-            android:layout_below="@id/taskDescription"/>
-
-        <Button
-            android:id="@+id/submitTaskButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Submit"
-            android:layout_below="@id/taskDeadline"/>
-    </RelativeLayout>
-
-    <!-- History Screen -->
-    <RelativeLayout
-        android:id="@+id/historyScreen"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp"
-        android:visibility="gone">
-
-        <RecyclerView
-            android:id="@+id/historyRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    </RelativeLayout>
-
+    <!-- Floating Action Button to Add Task -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addTaskFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        app:srcCompat="@drawable/add_circle"
+        android:contentDescription="Add Task" />
 </RelativeLayout>

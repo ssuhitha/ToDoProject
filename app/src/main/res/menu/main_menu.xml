@@ -1,0 +1,8 @@
+<!-- res/menu/main_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/historyMenuItem"
+        android:title="Task History"
+        android:showAsAction="always"
+        android:icon="@drawable/history" /> <!-- Icon for History -->
+</menu>
